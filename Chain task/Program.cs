@@ -8,47 +8,8 @@ namespace Chain_task
 {
    
 
-    class User
-    {
-        public User(string username, string password, string sign)
-        {
-            Username = username;
-            Password = password;
-            Sign= sign;
-        }
-
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Sign { get; set; }
-    }
-    public class Product
-    {
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public string Description { get; set; }
-        public Product(string name,double price,string desc)
-        {
-            Description = desc;
-            Price = price;
-            Name = name;
-        }
-    }
-    public class Order
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-
-
-        public Order(string name,decimal  price)
-        {
-            Name = name;
-            Price = price;
-        }
-
-    }
-    
-  
-    
+   
+   
  
     class Program
     {
@@ -59,6 +20,8 @@ namespace Chain_task
                 new User("nezrin","nezrin12","SignIn"),
                 new User("fatime","fatime123","SignIn"),
                 new User("Esger","Esger2003","SignIn"),
+                new User("eli","eli20","SignIn"),
+                new User("amin","amin","SignIn"),
             };
             SignUp s = new SignUp(users);
             SignIn s2 = new SignIn();
