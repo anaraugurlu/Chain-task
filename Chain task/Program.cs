@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chain_task
 {
-    interface IChain
-    {
-        IChain NextChain { get; set; }
-        List<User> Users { get; set; }
-        void SetNextChain(IChain chain);
-        void Sign(User user);
-    }
+   
 
     class User
     {
@@ -52,95 +46,10 @@ namespace Chain_task
         }
 
     }
-    class SignUp : IChain
-    {
-
-        public IChain NextChain { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
-        public SignUp(List<User> users)
-        {
-            Users = users;
-        }
-
-        public void SetNextChain(IChain chain)
-        {
-            NextChain = chain;
-        }
-
-        public void Sign(User user)
-        {
-            if (user.Sign == "SignUp")
-            {
-                Users.Add(new User(user.Username, user.Password, "SignIn"));
-                user.Sign = "SignIn";
-                Console.WriteLine("Sign up ended ");
-                NextChain.Users = Users;
-                NextChain.Sign(user);
-            }
-            else
-            {
-                NextChain.Users = Users;
-                NextChain.Sign(user);
-            }
-        }
-    }
+    
   
-    class OrderChain : IChain
-    {
-
-        public IChain NextChain { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
-
-        public void SetNextChain(IChain chain)
-        {
-            NextChain = chain;
-        }
-
-        public void Sign(User user)
-        {
-            if (user.Sign == "Order")
-            {
-                Console.WriteLine(" order  ");
-            }
-            else
-            {
-                Console.WriteLine(" end ");
-            }
-        }
-    }
-  class SignIn : IChain
-    {
-
-        public IChain NextChain { get; set; }
-        public List<User> Users { get; set; } = new List<User>();
-
-        public void SetNextChain(IChain chain)
-        {
-            NextChain = chain;
-        }
-
-        public void Sign(User user)
-        {
-            if (user.Sign == "SignIn")
-            {
-                var User = Users.SingleOrDefault((i) => user.Username == i.Username && user.Password == i.Password);
-                if (User != null)
-                {
-                    user.Sign = "Order";
-                    NextChain.Sign(user);
-                }
-                else
-                {
-                    Console.WriteLine(" the End ");
-                }
-            }
-            else
-            {
-                NextChain.Users = Users;
-                NextChain.Sign(user);
-            }
-        }
-    }
+    
+ 
     class Program
     {
         static void Main(string[] args)

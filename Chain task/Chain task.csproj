@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ichain.cs" />
+    <Compile Include="OrderChain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignIn.cs" />
+    <Compile Include="SignUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
